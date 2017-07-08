@@ -1,5 +1,8 @@
 package com.seereals.beidou.controller;
 
+import jdk.nashorn.internal.scripts.JS;
+import net.sf.json.JSONObject;
+import netscape.javascript.JSObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,19 +26,24 @@ public class LoginController {
     public Map<String, Object> getJson(HttpServletRequest req, HttpServletResponse rep) throws Exception {
         String userName = req.getParameter("userName");
         String password = req.getParameter("pwd");
-
-
+        System.out.println(userName);
+        System.out.println(password);
         Map<String, Object> map = new HashMap<String, Object>();
         if (userName.equals("zhr") && password.equals("123")) {
-            map.put("results", "login success");
+            map.put("status", 1);
+            map.put("msg", "成功");
         } else {
-            map.put("results", "login fail");
+            map.put("status", 0);
+            map.put("msg", "失败");
         }
-        List<Map<String, String>> list = new ArrayList<>();
+        List<JSONObject> list = new ArrayList<>();
         Map Map1 = new HashMap();
-        list.add(Map1);
-        Map1.put("key", "黄训磊");
-        map.put("data", list);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("userName", userName);
+        jsonObject.put("pwd", password);
+        list.add(jsonObject);
+        map.put("data", jsonObject);
+        System.out.println(map.toString());
         return map;
 
     }

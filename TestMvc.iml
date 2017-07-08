@@ -15,6 +15,7 @@
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/web/WEB-INF/dispatcher-servlet.xml</file>
+          <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -26,11 +27,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Spring-4.3.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Spring MVC-4.3.9.RELEASE" level="project" />
-    <orderEntry type="library" name="mina-core-2.0.16" level="project" />
-    <orderEntry type="library" name="slf4j-api-1.7.21" level="project" />
-    <orderEntry type="library" name="json-lib-2.2.2-jdk15" level="project" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 7.0.781" level="application_server_libraries" />
+    <orderEntry type="library" scope="TEST" name="lib1" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.47" level="application_server_libraries" />
   </component>
 </module>

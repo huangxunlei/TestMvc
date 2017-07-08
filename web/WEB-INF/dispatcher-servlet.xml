@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
@@ -48,13 +48,29 @@
            class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
      </bean>-->
 
-    <bean id="multipartResolver"   class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <!-- 设置上传文件的最大尺寸为10MB -->
-        <property name="maxUploadSize">
-            <value>1048576000</value>
-        </property>
-        <property name="maxInMemorySize">
-            <value>1024</value>
-        </property>
+    <!--//处理文件上传-->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--<property name="defaultEncoding" value="UTF-8"/> &lt;!&ndash; 编码 &ndash;&gt;-->
+        <!--<property name="maxInMemorySize" value="10240000"/> &lt;!&ndash; 上传时占用最大内存大小 (10240) &ndash;&gt;-->
+        <!--<property name="maxUploadSize" value="-1"/> &lt;!&ndash; 最大文件大小，-1为无限止(-1) &ndash;&gt;-->
     </bean>
+    <!--<bean id="multipartResolver"-->
+    <!--class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+    <!--<property name="maxUploadSize" value="104857600"/>-->
+    <!--<property name="maxInMemorySize" value="4096"/>-->
+    <!--</bean>-->
+    <!--<bean id="multipartResolver"-->
+    <!--class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+    <!--<property name="defaultEncoding">-->
+    <!--<value>UTF-8</value>-->
+    <!--</property>-->
+    <!--<property name="maxUploadSize">-->
+    <!--<value>32505856</value>-->
+    <!--</property>-->
+    <!--<property name="maxInMemorySize">&lt;!&ndash;设置了输入最大内存,所以文件太大上传时无法读入内存,只能在服务器中生成一个临时文件&ndash;&gt;-->
+    <!--&lt;!&ndash; <value>4096</value> &ndash;&gt;-->
+    <!--<value>32505856</value>-->
+    <!--</property>-->
+    <!--</bean>-->
 </beans>
